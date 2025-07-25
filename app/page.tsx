@@ -140,7 +140,7 @@ export default function Home() {
 
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-md"
+          className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-lg"
         >
           <input
             type="url"
@@ -156,13 +156,13 @@ export default function Home() {
           <button
             type="submit"
             disabled={loading || !isValidUrl}
-            className={`px-6 py-2 rounded-md text-white ${
+            className={`px-6 py-2 rounded-md text-white whitespace-nowrap ${
               loading || !isValidUrl
                 ? 'bg-gray-400 cursor-not-allowed'
-                : 'bg-blue-600 hover:bg-blue-700'
+                : 'bg-blue-600 hover:bg-blue-700 cursor-pointer'
             }`}
           >
-            {loading ? 'Shortening...' : 'Shorten'}
+            {loading ? 'Generating...' : 'Generate  Url'}
           </button>
         </form>
 
@@ -175,7 +175,7 @@ export default function Home() {
               href={shortUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 underline"
+              className="text-blue-600 underline cursor-pointer"
             >
               {shortUrl}
             </a>
@@ -184,7 +184,7 @@ export default function Home() {
 
         <button
           onClick={() => setShowSidebar(!showSidebar)}
-          className="mt-8 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+          className="mt-8 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 cursor-pointer"
         >
           📋 {showSidebar ? 'Hide' : 'Show'} All URLs
         </button>

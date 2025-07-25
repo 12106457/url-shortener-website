@@ -8,11 +8,6 @@ import { ObjectId } from "mongodb";
 
 const Url = mongoose.models.Url || mongoose.model("Url", UrlSchema);
 
-type PageProps = {
-  params: {
-    shortId: string;
-  };
-};
 
 export default async function RedirectPage({ params }: any) {
   const { shortId } = params;
