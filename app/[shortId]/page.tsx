@@ -1,3 +1,5 @@
+// app/[shortId]/page.tsx
+
 import mongoose from "mongoose";
 import { redirect } from "next/navigation";
 import { connectToDatabase } from "@/app/lib/mongodb";
@@ -6,15 +8,15 @@ import { ObjectId } from "mongodb";
 
 const Url = mongoose.models.Url || mongoose.model("Url", UrlSchema);
 
-interface Props {
-  params: { shortId: string };
-}
+type PageProps = {
+  params: {
+    shortId: string;
+  };
+};
 
-export default async function RedirectPage({ params }: Props) {
- 
-  const shortId = params.shortId;
+export default async function RedirectPage({ params }: any) {
+  const { shortId } = params;
 
- 
   await connectToDatabase();
 
   if (!ObjectId.isValid(shortId)) {
